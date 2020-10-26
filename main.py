@@ -104,14 +104,13 @@ if nObservations < 4:
 
 
 	
-if st.button('Download Data Labeled as CSV'):
-	lbls = [labels_str[lbl] for lbl in labels]
-	c_probs = [round(probs[i, labels[i]], 2) for i in range(nObservations)]
-	df['therapie_relevantes_delir_ja1'] = lbls
-	df['Class_Prob'] = c_probs
-	tmp_download_link = download_link(df, 'Labeled_data.csv', 'Click here to download your data!')
-	st.markdown(tmp_download_link, unsafe_allow_html=True)
-	
+lbls = [labels_str[lbl] for lbl in labels]
+c_probs = [round(probs[i, labels[i]], 2) for i in range(nObservations)]
+df['therapie_relevantes_delir_ja1'] = lbls
+df['Class_Prob'] = c_probs
+tmp_download_link = download_link(df, 'Labeled_data.csv', 'Click here to download your labeled data!')
+st.markdown(tmp_download_link, unsafe_allow_html=True)
+
 
 
 
